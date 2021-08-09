@@ -3,9 +3,10 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
-	"os"
 	"net/http"
+	"os"
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
