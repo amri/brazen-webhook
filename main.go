@@ -9,7 +9,10 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintf(w, "Hi there, I love %s!", r.URL.Path[1:])
+	body, err := ioutil.ReadAll(r.Body)
+	fmt.Println(err)
+	fmt.Println(string(body))
+	fmt.Fprintf(w, string(body), r.URL.Path[1:])
 }
 
 func main() {
