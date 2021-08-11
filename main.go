@@ -118,7 +118,7 @@ func main() {
 	println("Supply:")
 	fmt.Printf("  SP ACS URL      : %s\n", sp.AssertionConsumerServiceURL)
 
-	err = http.ListenAndServe(":80", nil)
+	err = http.ListenAndServe(":8800", nil)
 	if err != nil {
 		panic(err)
 	}
