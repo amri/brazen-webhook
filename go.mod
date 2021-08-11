@@ -1,5 +1,6 @@
 module awesomeProject1
 
+go 1.16
 
 require (
 	github.com/russellhaering/gosaml2 v0.6.0
@@ -9,6 +10,3 @@ require (
 	github.com/russellhaering/goxmldsig v1.1.0
 	github.com/stretchr/testify v1.6.1
 )
-
-
-go 1.16
