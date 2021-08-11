@@ -22,6 +22,8 @@ func main() {
 	if port == "" {
 		port = "80"
 	}
+	
+	http.Handle("/register/1", http.FileServer(http.Dir("./1.html")))
   
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
