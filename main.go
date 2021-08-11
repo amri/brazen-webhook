@@ -1,4 +1,3 @@
-
 package main
 
 import (
@@ -17,14 +16,23 @@ func handler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-  
-  port := os.Getenv("PORT")
+
+	port := os.Getenv("PORT")
 	if port == "" {
-		port = "80"
+		port = "8080"
 	}
-	
-	http.Handle("/register/1", http.FileServer(http.Dir("./1.html")))
-  
+
+	http.HandleFunc("/register/1", serveFiles)
+
 	http.HandleFunc("/", handler)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%s", port), nil))
+}
+
+func serveFiles(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.URL.Path)
+	p := "." + r.URL.Path
+	if p == "./register/1" {
+		p = "./1.html"
+	}
+	http.ServeFile(w, r, p)
 }
